@@ -1,0 +1,22 @@
+.bootstrap-switch {
+  display: block;
+}
+.bootstrap-switch .bootstrap-switch-container {
+	border-radius: 2px;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on {
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+}
+
+.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off {
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
+}
