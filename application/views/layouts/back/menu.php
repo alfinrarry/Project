@@ -148,7 +148,7 @@
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/addUser')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/User/formAddUser')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
 								<span class="hide-menu"> Tambah Admin </span>
 							</a>

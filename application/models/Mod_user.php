@@ -7,6 +7,7 @@ class Mod_user extends CI_Model {
   protected $userDetail 	   = 'em_user_details';
   protected $useradmin       = 'em_useradmins';
   protected $useradminDetail = 'em_useradmin_details';
+  protected $role            = 'em_user_roles';
 
   public function logged_id(){ 
     return $this->session->userdata('id'); 
@@ -60,6 +61,54 @@ class Mod_user extends CI_Model {
     $this->db->where($this->user.'.id',$id);
     return $this->db->get();
   }
+
+  public function getUserById($id){
+    $this->db->from($this->user);
+    $this->db->where('id',$id);
+    return $this->db->get();
+  }
+  
+  public function getRole(){
+    
+    $this->db->from($this->user);
+    $this->db->join($this->role,$this->user.'.id_role = '.$this->role.'.id');
+    $this->db->select($this->user.'.id');
+    $this->db->select($this->user.'.fullname');
+    $this->db->select($this->role.'.name');
+    return $this->db->get();
+  }
+  public function getAllRole(){
+    $this->db->select('*');
+    $this->db->from($this->role);
+    return $this->db->get();
+  }
+  public function addUser($data)
+  {
+    $this->db->insert($this->user, $data);
+    return $this->db->insert_id();
+  }
+  public function editUser ($id=0, $data=0)
+  {
+    $this->db->set($data);
+    $this->db->where('id', $id);
+    $this->db->update($this->user);
+  }
+  public function whereImgsTemp($token){
+    $this->db->where('token',$token['token']);
+    $this->db->where('token_backup',$token['token_backup']);
+    return  $this->db->get($this->product_img_temp);
+  }
+  public function getListUser(){
+    $this->db->select('*');
+    $this->db->from($this->user);       
+    return $this->db->get();
+  }
+  public function delUser($id){
+    $this ->db-> where('id', $id);
+    $this ->db-> delete($this->user);
 }
+}
+
+
 
 /* End of file Mod_user.php */

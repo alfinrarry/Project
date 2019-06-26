@@ -38,7 +38,7 @@ class Product extends PIS_Controller {
      $data_product = array(
        'title_product'  => $_POST['title_product'] ,
        'id_useradmin'   => $_SESSION['id'],
-       'id_category'  => $_POST['category'] ,
+       'id_category'    => $_POST['category'] ,
        'slug_product'   => slug($_POST['token'].'_'.$_POST['title_product']),
        'price'          => $_POST['price'] ,
        'weight'         => $_POST['weight'] ,

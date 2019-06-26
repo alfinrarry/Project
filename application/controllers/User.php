@@ -43,6 +43,7 @@ class User extends PIS_Controller {
     } 
     $this->template->front_views('site/front/login',$data);
   }
+
   public function register(){    
     $data['codepage']		= "login";
     if(isset($_POST['submit'])){
@@ -58,11 +59,12 @@ class User extends PIS_Controller {
         $this->template->front_views('site/front/login', $data); 
       } else {
         $data_user = array( 
-          'email'      => $_POST['email'], 
-          'username'   => $_POST['username'],
-          'password'   => hash_password($_POST['password']),
-          'id_role'    => 1,
-          'created_at' => date('Y-m-j H:i:s'), 
+          'id_useradmin'  => $_POST['id'],
+          'email'         => $_POST['email'], 
+          'username'      => $_POST['username'],
+          'password'      => hash_password($_POST['password']),
+          'id_role'       => $_POST['id_role'],
+          'created_at'    => date('Y-m-j H:i:s'), 
         ); 
         $check_email = $this->user->checkEmail($_POST['email'])->num_rows();
         if ($check_email == 0) {  
